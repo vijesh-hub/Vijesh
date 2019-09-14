@@ -40,13 +40,13 @@ female['name'].describe()
 # In[7]:
 
 
-female['name']=female['name'].drop_duplicates(keep='first')
+female['name']=female['name'].drop_duplicates(keep='first')    #drops all the duplicate entries and keeps the first entry
 
 
 # In[8]:
 
 
-female=female.dropna()
+female=female.dropna()                                     # drops all the null and missing values
 
 
 # In[10]:
@@ -78,13 +78,13 @@ female.info()
 
 B=[]
 for word in male['name']:   
-    if word[-1] =='i' or word[-1] =='a'or word[-1]=='y':
+    if word[-1] =='i' or word[-1] =='a'or word[-1]=='y':     #checks whelther the last letter of the name is 'i' or 'a' or 'y'
         continue
     else:
-        B.append(word)
+        B.append(word)                                        # if the condition is not satisfied , names are stored in a list
       
 print("possible percentage of male is")
-(len(B)/8519)*100
+(len(B)/len(male))*100                                         # 75.12 % of the male name passes the model
 
 
 # In[15]:
@@ -92,11 +92,11 @@ print("possible percentage of male is")
 
 B=[]
 for word in female['name']:   
-    if word[-1]=='i' or word[-1]=='a'or word[-1]=='y':  
-        B.append(word)
+    if word[-1]=='i' or word[-1]=='a'or word[-1]=='y':      #checks whelther the last letter of the name is 'i' or 'a' or 'y'
+        B.append(word)                                       #if the condition is satisfied , names are stored in a list
       
 print("possible percentage of female is")
-(len(B)/6773)*100
+(len(B)/len(female))*100                                     #62.70% of the female names passes the model
 
 
 # In[ ]:
